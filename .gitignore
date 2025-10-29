@@ -3,6 +3,7 @@ assets/
 checkpoints/
 data/
 wandb/
+log_images_r1lite_ros2/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

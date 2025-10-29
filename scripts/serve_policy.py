@@ -18,6 +18,7 @@ class EnvMode(enum.Enum):
     ALOHA_SIM = "aloha_sim"
     DROID = "droid"
     LIBERO = "libero"
+    R1LITE = 'r1lite'
 
 
 @dataclasses.dataclass
@@ -73,6 +74,10 @@ DEFAULT_CHECKPOINT: dict[EnvMode, Checkpoint] = {
         config="pi05_libero",
         dir="gs://openpi-assets/checkpoints/pi05_libero",
     ),
+    EnvMode.R1LITE: Checkpoint(
+        config="pi05_r1lite",
+        dir="gs://openpi-assets/checkpoints/pi05_base",
+    ),
 }
 
 
@@ -110,7 +115,7 @@ def main(args: Args) -> None:
 
     server = websocket_policy_server.WebsocketPolicyServer(
         policy=policy,
-        host="0.0.0.0",
+        host="192.168.31.160",
         port=args.port,
         metadata=policy_metadata,
     )
